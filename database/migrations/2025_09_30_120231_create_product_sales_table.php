@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sales', function (Blueprint $table) {
+        Schema::create('product_sale', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 150);
-            $table->decimal('discount_percent', 5, 2)->nullable();
-            $table->decimal('discount_amount', 10, 2)->nullable();
-            $table->dateTime('start_at');
-            $table->dateTime('end_at');
+            $table->foreignId('sale_id')->constrained()->onDelete('cascade');
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->timestamps();
-            $table->index(['start_at', 'end_at']);
+
+            $table->unique(['sale_id', 'product_id']);
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sales');
+        Schema::dropIfExists('product_sales');
     }
 };

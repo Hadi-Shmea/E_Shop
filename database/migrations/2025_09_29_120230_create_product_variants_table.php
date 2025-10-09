@@ -15,8 +15,6 @@ return new class extends Migration {
             $table->integer('stock')->default(0);
             $table->decimal('price', 10, 2);
             $table->timestamps();
-
-            $table->unique(['product_id', 'color_id', 'size_id']);
             $table->index(['color_id', 'size_id']);
         });
     }

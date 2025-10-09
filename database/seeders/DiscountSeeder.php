@@ -3,12 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Sale;
+use App\Models\Discount;
 
-class SaleSeeder extends Seeder
+class DiscountSeeder extends Seeder
 {
     public function run(): void
     {
-        Sale::factory(50)->create();
+        Discount::factory(20)->create();
     }
 }
