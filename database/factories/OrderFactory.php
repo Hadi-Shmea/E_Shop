@@ -16,7 +16,7 @@ class OrderFactory extends Factory {
         return [
             'user_id' => $user->id,
             'total' => 0, // calculated later
-            'status' => $this->faker->randomElement(['pending','paid','shipped','completed','canceled']),
+            'shipping_status' => $this->faker->randomElement(['pending','paid','shipped','completed','canceled']),
             'payment_status' => $this->faker->randomElement(['unpaid','paid','refunded']),
             'payment_method' => $this->faker->randomElement(['card','paypal']),
         ];

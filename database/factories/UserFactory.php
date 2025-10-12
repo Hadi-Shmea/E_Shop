@@ -17,6 +17,8 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'password' => bcrypt('password'),
             'role' => $this->faker->randomElement(['customer','admin','vendor']),
+            'address' => $this->faker->address(),
+            'shipping_address' => $this->faker->address(),
         ];
     }
 }

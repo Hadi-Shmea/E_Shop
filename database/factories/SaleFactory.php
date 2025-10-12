@@ -27,7 +27,6 @@ class SaleFactory extends Factory
             // Fallback if no order items exist
             $product = Product::inRandomOrder()->first() ?? Product::factory()->create();
             $orderItem = OrderItem::factory()->create([
-                'order_id' => $order->id,
                 'product_id' => $product->id,
                 'price' => $this->faker->randomFloat(2, 50, 500),
                 'quantity' => $this->faker->numberBetween(1, 5),
@@ -44,7 +43,6 @@ class SaleFactory extends Factory
         $finalPrice = max(0, $orderItem->price - $discountAmount); // never negative
 
         return [
-            'order_id' => $order->id,
             'order_item_id' => $orderItem->id,
             'product_id' => $product->id,
             'product_variant_id' => $variant->id,

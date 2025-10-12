@@ -13,6 +13,8 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->string('password');
             $table->enum('role', ['customer', 'admin', 'vendor'])->default('customer');
+            $table->string('address');
+            $table->string('shipping_address')->nullable();
             $table->timestamps();
 
             $table->index('role');

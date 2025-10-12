@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('discounts', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // e.g. Black Friday, Summer Sale
-            $table->string('type')->default('percentage'); // 'percentage' or 'fixed'
+            $table->enum('type', ['percentage', 'fixed'])->default('percentage'); // 'percentage' or 'fixed'
             $table->decimal('value', 10, 2); // e.g. 15 = 15% or 15.00 = $15
             $table->foreignId('brand_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->nullable()->constrained()->onDelete('cascade');

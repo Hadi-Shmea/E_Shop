@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->decimal('total', 10, 2);
-            $table->enum('status', ['pending', 'paid', 'shipped', 'completed', 'canceled'])->default('pending');
+            $table->enum('shipping_status', ['pending', 'paid', 'shipped', 'completed', 'canceled'])->default('pending');
             $table->enum('payment_status', ['unpaid', 'paid', 'refunded'])->default('unpaid');
             $table->string('payment_method')->nullable();
             $table->timestamps();
-            $table->index(['user_id', 'status']);
+            $table->index(['user_id', 'shipping_status']);
         });
     }
 
