@@ -9,6 +9,6 @@ class DiscountSeeder extends Seeder
 {
     public function run(): void
     {
-        Discount::factory(20)->create();
+        Discount::factory(200)->create();
     }
 }

@@ -12,7 +12,7 @@ class CategorySeeder extends Seeder
     {
         $usedSlugs = [];
 
-        foreach (range(1, 20) as $i) {
+        foreach (range(1, 100) as $i) {
             $name = fake()->unique()->word();
             $slug = Str::slug($name);
 
